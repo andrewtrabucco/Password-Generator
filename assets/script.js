@@ -1,4 +1,4 @@
-// Assignment Code
+//Sets variable generateBtn and prompts the browser to run script once Generate Password button is clicked
 var generateBtn = document.querySelector("#generate");
 
 //Sets empty array first, then defines arrays for lower/upper/num/special
@@ -23,25 +23,32 @@ function generatePassword()  {
   characterArray = [];
 //Prompt user for amount of characters in their password  
   var length = prompt("How many characters would you like in your password? Between 8-128");
-//Ask user to confirm if lowercase letter is included from the characterArray
-//If   
+//Ask user to confirm if lowerCaseArray is to be added to characterArray
+//If lowercase is true, lowercCse array included in password, if false skip and continue   
   var lowerCase = confirm("Would you like to include a lowercase letter?");
     if(lowerCase) {
       characterArray = (characterArray.concat(lowerCaseArray));
   }
-  var upperCase = confirm("Enter an uppercase letter.");
+//Ask user to confirm if upperCaseArray is to be added to characterArray
+//If uppercase is true, upperCaseArray included in password, if false skip and continue  
+  var upperCase = confirm("Would you like to include and uppercase letter?");
     if(upperCase) {
     characterArray = (characterArray.concat(upperCaseArray));
   }
-  var number = confirm("Enter a number.");
+//Ask user to confirm if numberArray is to be added to characterArray
+//If number is true, numberArray included in password, if false skip and continue
+  var number = confirm("Would you like to include a number?");
     if(number) {
     characterArray = (characterArray.concat(numberArray));
   }
-  var special = confirm("Enter a special character.");
+//Ask user to confirm if specialCharacterArray is to be added to characterArray
+//If special is true, specialCharacterArray included in password, if false skip and continue
+  var special = confirm("Would you like to include a special character?");
     if(special) {
     characterArray = (characterArray.concat(specialCharacterArray));
   }
-  
+//Logs characterArray to console
+//Randomizes characterArray, sets password and returns password to text area  
   console.log(characterArray)
   var password = "";
     for (var i = 0; i < length; i++) {
@@ -53,7 +60,7 @@ function generatePassword()  {
 }
 
 
-// Add event listener to generate button
+//Event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 
